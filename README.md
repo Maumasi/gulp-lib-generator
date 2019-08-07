@@ -39,7 +39,10 @@ const libOptions = [
     ignore: ['^_demo']
     src: './dev/sass/styles/lib',
     dest: './dev/sass/styles/',
-  }
+  },
+  {
+    src: './src/api/routes/',
+  },
 ];
 
 gulp.task('lib', gulp.series( libGenerator(libOptions) ));
@@ -60,16 +63,8 @@ A directory with a JavaScript files that could be considered a library like a di
 <i><strong>Required</strong></i>
 ```javascript
 
-type: // REQUIRED
-  'REQUIRE' // for module.exports files
-  'IMPORT'  // for exports files
-  'SASS'    // for SASS || SCSS files
-
-libFile: // REQUIRED
-  'index.js' // custom name of library file
-
 src: // REQUIRED
-  '/path/to/library/directory/' // Fully qualified paths are auto generated
+  './path/to/library/directory/' // Fully qualified paths are auto generated
 
 ```
 
@@ -77,9 +72,13 @@ src: // REQUIRED
 
 ```javascript
 
-dest: // OPTIONAL
-  '/path/to/library/directory/' // Fully qualified paths are auto generated
-                                // if none provided the `src` path will be used
+type: // OPTIONAL
+  'REQUIRE' // for module.exports files
+  'IMPORT'  // for exports files
+  'SASS'    // for SASS || SCSS files
+
+libFile: // OPTIONAL
+  'index.js' // custom name of library file
 
 ascending: // OPTIONAL
   true      // export files in ascending order: [_, 0 -> 99999 , A -> Z]
@@ -87,6 +86,24 @@ ascending: // OPTIONAL
 
 ignore: // OPTIONAL
   []        // array of string values of file names to not include in library. Regex strings are accepted
+
+  dest: // OPTIONAL
+    './path/to/library/directory/' // Fully qualified paths are auto generated
+                                  // if none provided the `src` path will be used
+
+```
+
+<i><strong>Defaults</strong></i>
+```javascript
+
+{
+  type: 'REQUIRE',
+  libFile: 'index.js',
+  ignore: [],
+  ascending: true,
+  src: null,
+  dest: null,
+},
 
 ```
 

@@ -2,6 +2,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const{ REQUIRE, IMPORT, SASS } = require('./src/_types');
+
 const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
 const rewriteFile = require('./src/_rewriteFile');
@@ -29,11 +31,11 @@ function exportLibraries(libArray) {
       fs.readdir(lib.finalDest, (err, data) => {
         try {
           let newLibIndex = '';
-          if(lib.type === 'REQUIRE') {
+          if(lib.type === REQUIRE) {
             newLibIndex = requireIn(lib);
-          } else if(lib.type === 'IMPORT') {
+          } else if(lib.type === IMPORT) {
             newLibIndex = importIn(lib);
-          } else if(lib.type === 'SASS') {
+          } else if(lib.type === SASS) {
             newLibIndex = sassImportIn(lib);
           }
           rewriteFile(lib.finalDest, newLibIndex);
