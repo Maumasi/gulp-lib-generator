@@ -1,6 +1,6 @@
 # Gulp Lib Generator
 
-## A gulp task that creates a mass exports file from directory that contain exported vars, functions, etc. Great for use with frameworks!
+### A gulp task that creates a mass exports file from directory that contain exported vars, functions, etc. Great for use with frameworks!
 ---
 <br>
 
