@@ -118,7 +118,7 @@ import component_4 from './components_dir/component_4';
 
 <br>
 
-#### **Newer way of importing components**
+#### **Importing components as a library**
 <p>
 When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
 </p>
