@@ -165,7 +165,7 @@ When using <code>import</code>, functions, vars, classes, etc. must be exported 
 
 
 ```javascript
-// component_1.js
+// ./path/to/components_dir/component_1.js
 
 const foo = () {
   console.log('bar');
