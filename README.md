@@ -75,6 +75,7 @@ const {
 
 <br>
 <i>using <code>import</code></i>
+
 ```javascript
 import {
   component_1,
