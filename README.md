@@ -20,7 +20,7 @@ A directory with a JavaScript files that could be considered a library like a di
 </p>
 
 <p>
-When importing or requiring in files from directories, ``` index.js ``` is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
+When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
 </p>
 
 
