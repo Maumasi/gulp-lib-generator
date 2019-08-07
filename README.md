@@ -60,7 +60,7 @@ When importing or requiring in files from directories, <code> index.js </code> i
     ├── component_2.js
     ├── component_3.js
     ├── component_4.js
-    └── index.js  <=== new component lib for directory
+    └── index.js  <=== # new component lib for directory
 ```
 
 <i>using <code>require();</code></i>
