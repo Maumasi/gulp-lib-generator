@@ -1,10 +1,11 @@
 
 const fs = require('fs');
 const path = require('path');
-const rewriteFile = require('./_rewriteFile');
-const { requireIn, importIn, sassImportIn} = require('./_formatType');
 
 const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
+
+const rewriteFile = require(path.resolve(ROOT_DIR, './src/_rewriteFile'));
+const { requireIn, importIn, sassImportIn} = require(path.resolve(ROOT_DIR, './src/_formatType'));
 
 function exportLibraries(libArray) {
   // using closure to maintain data
