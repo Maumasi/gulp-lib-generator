@@ -10,9 +10,11 @@ const rewriteFile = require('./src/_rewriteFile');
 const { requireIn, importIn, sassImportIn} = require('./src/_formatType');
 
 function exportLibraries(libArray) {
+  const defaults = { type: REQUIRE, libFile: 'index.js', ignore: [], ascending: true };
   // using closure to maintain data
   const libPaths = libArray.map((lib) => {
-    let tempObj = lib;
+
+    let tempObj = { ...defaults, ...lib };
     if(!tempObj.dest) {
       tempObj.dest = tempObj.src;
     }

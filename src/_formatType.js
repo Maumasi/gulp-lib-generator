@@ -6,8 +6,7 @@ const{ REQUIRE } = require('./_types');
 const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
 function _baseFormat(lib, cb) {
-  const defaults = { type: REQUIRE, libFile: 'index.js', ignore: [], ascending: true };
-  const { src, dest, ignore, libFile, ascending } = { ...defaults, ...lib};
+  const { src, dest, ignore, libFile, ascending } = lib;
 
   let content = '';
 
