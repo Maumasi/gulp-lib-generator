@@ -2,7 +2,7 @@
 
 ## A gulp task that creates a mass exports file from directory that contain exported vars, functions, etc. Great for use with frameworks!
 ---
-</br>
+<br>
 
 #### Install
 ```bash
@@ -11,7 +11,7 @@ npm install --save-dev gulp-lib-exporter
 npx install --save-dev gulp-lib-exporter
 ```
 ---
-</br>
+<br>
 
 #### Use
 <!-- <p></p> -->
@@ -39,7 +39,7 @@ const component_2 = require('./components_dir/component_2');
 const component_3 = require('./components_dir/component_3');
 const component_4 = require('./components_dir/component_4');
 ```
-</br>
+<br>
 
 <i>using <code>import</code></i>
 ```javascript
@@ -73,7 +73,7 @@ const {
 } = require('./components_dir');
 ```
 
-</br>
+<br>
 <i>using <code>import</code> </i>
 ```javascript
 import {
