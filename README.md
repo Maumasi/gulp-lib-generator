@@ -86,7 +86,7 @@ ascending: // OPTIONAL
   false     // export files in descending order: [Z -> A, 9999 -> 0, _]
 
 ignore: // OPTIONAL
-  []        // array of string values to not include in library. Regex strings are accepted
+  []        // array of string values of file names to not include in library. Regex strings are accepted
 
 ```
 
@@ -101,19 +101,19 @@ ignore: // OPTIONAL
 ```
 <i>using <code>require();</code></i>
 ```javascript
-const component_1 = require('./components_dir/component_1');
-const component_2 = require('./components_dir/component_2');
-const component_3 = require('./components_dir/component_3');
-const component_4 = require('./components_dir/component_4');
+const component_1 = require('./path/to/components_dir/component_1');
+const component_2 = require('./path/to/components_dir/component_2');
+const component_3 = require('./path/to/components_dir/component_3');
+const component_4 = require('./path/to/components_dir/component_4');
 ```
 <br>
 
 <i>using <code>import</code></i>
 ```javascript
-import component_1 from './components_dir/component_1';
-import component_2 from './components_dir/component_2';
-import component_3 from './components_dir/component_3';
-import component_4 from './components_dir/component_4';
+import component_1 from './path/to/components_dir/component_1';
+import component_2 from './path/to/components_dir/component_2';
+import component_3 from './path/to/components_dir/component_3';
+import component_4 from './path/to/components_dir/component_4';
 ```
 
 <br>
