@@ -19,19 +19,48 @@ npx install --save-dev gulp-lib-exporter
 A directory with a JavaScript files that could be considered a library like a directory of React.js or Vue.js components can be exported through a single file.
 </p>
 
+##### **Old way of importing components**
+
+<p>
+
+</p>
+
+<code>
+const component_1 = require('./components_dir/component_1');
+const component_2 = require('./components_dir/component_2');
+const component_3 = require('./components_dir/component_3');
+const component_4 = require('./components_dir/component_4');
+</code>
+
+```bash
+├── components_dir/
+    ├── component_1.js
+    ├── component_2.js
+    ├── component_3.js
+    └── component_4.js
+
+```
+---
+##### **Newer way of importing components**
 <p>
 When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
 </p>
 
+<code>
+const {
+  component_1,
+  component_2,
+  component_3,
+  component_4,
+} = require('./components_dir');
+</code>
 
-<p>📁 <i>DIR "components"</i></p>
-<p>⌙ 📄 <i>FILE "component_1.js"</i></p>
-<p>⌙ 📄 <i>FILE "component_2.js"</i></p>
-<p>⌙ 📄 <i>FILE "component_3.js"</i></p>
+```bash
+├── components_dir/
+    ├── component_1.js
+    ├── component_2.js
+    ├── component_3.js
+    ├── component_4.js
+    └── index.js
 
-
-<p>📁 <i>DIR "components"</i></p>
-<p>⌙ 📄 <i>FILE "component_1.js"</i></p>
-<p>⌙ 📄 <i>FILE "component_2.js"</i></p>
-<p>⌙ 📄 <i>FILE "component_3.js"</i></p>
-<p>⌙ 📑 <i>FILE "index.js"</i></p>
+```
