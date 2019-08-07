@@ -1,4 +1,4 @@
-# Gulp Lib Exporter
+# Gulp Lib Generator
 
 ## A gulp task that creates a mass exports file from directory that contain exported vars, functions, etc. Great for use with frameworks!
 ---
@@ -6,18 +6,30 @@
 
 #### Install
 ```bash
-npm install --save-dev gulp-lib-exporter
+npm install --save-dev gulp-lib-generator
 # or
-npx install --save-dev gulp-lib-exporter
+npx install --save-dev gulp-lib-generator
 ```
 ---
 <br>
 #### Setup
 ```javascript
 const gulp = require('gulp');
-const libExporter = require('gulp-lib-exporter');
+const libGenerator = require('gulp-lib-generator');
 
 
+const libOptions = {
+  {
+    type: 'REQUIRE',
+    libFile: 'index.js',
+    ascending: true, // ------ optional
+    ignore: ['^_', '^(.(?!\.js$))+$'], // ------ optional
+    src: './_dev/gulp_tasks/lib',
+    dest: './_dev/gulp_tasks/', // ------ optional
+  }
+};
+
+gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 ```
 
 
@@ -28,6 +40,41 @@ const libExporter = require('gulp-lib-exporter');
 <p>
 A directory with a JavaScript files that could be considered a library like a directory of React.js or Vue.js components can be exported through a single file.
 </p>
+
+##### **Options**
+
+<i><strong>Required</strong></i>
+```javascript
+
+type: // REQUIRED
+  'REQUIRE' // for module.exports files
+  'IMPORT'  // for exports files
+  'SASS'    // for SASS || SCSS files
+
+libFile: // REQUIRED
+  'index.js' // custom name of library file
+
+src: // REQUIRED
+  '/path/to/library/directory/' // Fully qualified paths are auto generated
+
+```
+
+<i><strong>Optional</strong></i>
+
+```javascript
+
+dest: // OPTIONAL
+  '/path/to/library/directory/' // Fully qualified paths are auto generated
+                                // if none provided the `src` path will be used
+
+ascending: // OPTIONAL
+  true      // export files in ascending order: [_, 0 -> 99999 , A -> Z]
+  false     // export files in descending order: [Z -> A, 9999 -> 0, _]
+
+ignore: // OPTIONAL
+  []        // array of string values to not include in library. Regex strings are accepted
+
+```
 
 ##### **Old way of importing components**
 
@@ -97,4 +144,21 @@ import {
   component_3,
   component_4
 } from './path/to/components_dir';
+```
+
+#### Notice
+<p>
+When using <code>import</code>, functions, vars, classes, etc. must be exported in an object literal:
+</p>
+
+
+```javascript
+// component_1.js
+
+const foo = () {
+  console.log('bar');
+}
+
+export { foo };
+// Using `export default` could cause errors.
 ```
