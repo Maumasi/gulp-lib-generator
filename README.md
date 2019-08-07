@@ -19,16 +19,28 @@ const gulp = require('gulp');
 const libGenerator = require('gulp-lib-generator');
 
 
-const libOptions = {
+const libOptions = [
   {
     type: 'REQUIRE',
     libFile: 'index.js',
-    ascending: true, // ------ optional
-    ignore: ['^_', '^(.(?!\.js$))+$'], // ------ optional
+    ignore: ['^_', '^(.(?!\.js$))+$'],
     src: './_dev/gulp_tasks/lib',
-    dest: './_dev/gulp_tasks/', // ------ optional
+    dest: './_dev/gulp_tasks/',
+  },
+  {
+    type: 'IMPORT',
+    libFile: 'index.js',
+    ascending: false,
+    src: './src/views/templates',
+  },
+  {
+    type: 'SASS',
+    libFile: 'main.sass',
+    ignore: ['^_demo']
+    src: './dev/sass/styles/lib',
+    dest: './dev/sass/styles/',
   }
-};
+];
 
 gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 
