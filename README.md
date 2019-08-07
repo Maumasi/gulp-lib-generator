@@ -12,7 +12,17 @@ npx install --save-dev gulp-lib-exporter
 ```
 ---
 <br>
+#### Setup
+```javascript
+const gulp = require('gulp');
+const libExporter = require('gulp-lib-exporter');
 
+
+```
+
+
+---
+<br>
 #### Use
 <!-- <p></p> -->
 <p>
@@ -54,13 +64,17 @@ import component_4 from './components_dir/component_4';
 When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
 </p>
 
+<p>
+external files can now be pulled in using the newly generated library
+</p>
+
 ```bash
 ├── components_dir/
     ├── component_1.js
     ├── component_2.js
     ├── component_3.js
     ├── component_4.js
-    └── index.js  <=== # new component lib for directory
+    └── index.js  # <--- new component library for directory
 ```
 
 <i>using <code>require();</code></i>
@@ -70,7 +84,7 @@ const {
   component_2,
   component_3,
   component_4,
-} = require('./components_dir');
+} = require('./path/to/components_dir');
 ```
 
 <br>
@@ -82,5 +96,5 @@ import {
   component_2,
   component_3,
   component_4
-} from './components_dir';
+} from './path/to/components_dir';
 ```
