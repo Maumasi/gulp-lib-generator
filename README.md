@@ -115,6 +115,7 @@ import component_2 from './components_dir/component_2';
 import component_3 from './components_dir/component_3';
 import component_4 from './components_dir/component_4';
 ```
+<br>
 
 ##### **Newer way of importing components**
 <p>
