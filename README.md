@@ -25,12 +25,12 @@ A directory with a JavaScript files that could be considered a library like a di
 
 </p>
 
-<code>
+```javascript
 const component_1 = require('./components_dir/component_1');
 const component_2 = require('./components_dir/component_2');
 const component_3 = require('./components_dir/component_3');
 const component_4 = require('./components_dir/component_4');
-</code>
+```
 
 ```bash
 ├── components_dir/
@@ -46,14 +46,14 @@ const component_4 = require('./components_dir/component_4');
 When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
 </p>
 
-<code>
+```javascript
 const {
   component_1,
   component_2,
   component_3,
   component_4,
 } = require('./components_dir');
-</code>
+```
 
 ```bash
 ├── components_dir/
