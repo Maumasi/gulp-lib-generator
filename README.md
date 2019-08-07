@@ -60,7 +60,7 @@ When importing or requiring in files from directories, <code> index.js </code> i
     ├── component_2.js
     ├── component_3.js
     ├── component_4.js
-    └── index.js
+    └── index.js  <-- lib \for directory\'s components
 ```
 
 <i>using <code>require();</code></i>
@@ -75,7 +75,6 @@ const {
 
 <br>
 <i>using <code>import</code></i>
-
 ```javascript
 import {
   component_1,
