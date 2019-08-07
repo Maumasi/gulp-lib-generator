@@ -32,7 +32,7 @@ A directory with a JavaScript files that could be considered a library like a di
     ├── component_3.js
     └── component_4.js
 ```
-<i>using ```javascript require(); ```</i>
+<i>using <code>require();</code></i>
 ```javascript
 const component_1 = require('./components_dir/component_1');
 const component_2 = require('./components_dir/component_2');
@@ -40,7 +40,8 @@ const component_3 = require('./components_dir/component_3');
 const component_4 = require('./components_dir/component_4');
 ```
 </br>
-<i>using ```javascript import ```</i>
+
+<i>using <code>import</code></i>
 ```javascript
 import component_1 from './components_dir/component_1';
 import component_2 from './components_dir/component_2';
@@ -62,7 +63,7 @@ When importing or requiring in files from directories, <code> index.js </code> i
     └── index.js
 ```
 
-<i>using ```javascript require(); ```</i>
+<i>using <code>require();</code></i>
 ```javascript
 const {
   component_1,
@@ -71,8 +72,9 @@ const {
   component_4,
 } = require('./components_dir');
 ```
+
 </br>
-<i>using ```javascript import ```</i>
+<i>using <code>import</code> </i>
 ```javascript
 import {
   component_1,
