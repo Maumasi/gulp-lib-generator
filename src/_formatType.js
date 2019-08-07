@@ -7,7 +7,6 @@ const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT
 
 function _baseFormat(lib, cb) {
   const { src, dest, ignore, libFile, ascending } = lib;
-
   let content = '';
 
   if(ascending) {
