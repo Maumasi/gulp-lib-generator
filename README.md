@@ -44,7 +44,7 @@ const libOptions = [
 
 gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 
-// # in terminal:
+// # command in terminal:
 // $ gulp lib
 
 ```
@@ -92,10 +92,6 @@ ignore: // OPTIONAL
 
 ##### **Old way of importing components**
 
-<p>
-
-</p>
-
 ```bash
 ├── components_dir/
     ├── component_1.js
@@ -119,7 +115,7 @@ import component_2 from './components_dir/component_2';
 import component_3 from './components_dir/component_3';
 import component_4 from './components_dir/component_4';
 ```
----
+
 ##### **Newer way of importing components**
 <p>
 When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
