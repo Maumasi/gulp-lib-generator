@@ -90,7 +90,7 @@ ignore: // OPTIONAL
 
 ```
 
-##### **Old way of importing components**
+#### **Old way of importing components**
 
 ```bash
 ├── components_dir/
@@ -115,9 +115,10 @@ import component_2 from './components_dir/component_2';
 import component_3 from './components_dir/component_3';
 import component_4 from './components_dir/component_4';
 ```
+
 <br>
---
-##### **Newer way of importing components**
+
+#### **Newer way of importing components**
 <p>
 When importing or requiring in files from directories, <code> index.js </code> is not required to be specifically defined in the path because it is implicitly imported if present in the directory.
 </p>
