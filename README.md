@@ -74,12 +74,13 @@ const {
 ```
 
 <br>
-<i>using <code>import</code> </i>
+<i>using <code>import</code></i>
+
 ```javascript
 import {
   component_1,
   component_2,
   component_3,
-  component_4,
+  component_4
 } from './components_dir';
 ```
