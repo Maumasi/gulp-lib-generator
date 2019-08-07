@@ -172,5 +172,4 @@ const foo = () {
 }
 
 export { foo };
-// Using `export default` could cause errors.
 ```
