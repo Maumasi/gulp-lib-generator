@@ -44,6 +44,9 @@ const libOptions = [
 
 gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 
+// # in terminal:
+// $ gulp lib
+
 ```
 
 ---
