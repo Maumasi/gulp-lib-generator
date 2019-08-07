@@ -15,6 +15,7 @@ function exportLibraries(libArray) {
   const libPaths = libArray.map((lib) => {
 
     let tempObj = { ...defaults, ...lib };
+    console.log(tempObj);
     if(!tempObj.dest) {
       tempObj.dest = tempObj.src;
     }
