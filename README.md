@@ -12,6 +12,7 @@ npx install --save-dev gulp-lib-generator
 ```
 ---
 <br>
+
 #### Setup
 ```javascript
 const gulp = require('gulp');
@@ -30,18 +31,16 @@ const libOptions = {
 };
 
 gulp.task('lib', gulp.series( libGenerator(libOptions) ));
-```
 
+```
 
 ---
 <br>
+
 #### Use
-<!-- <p></p> -->
 <p>
 A directory with a JavaScript files that could be considered a library like a directory of React.js or Vue.js components can be exported through a single file.
 </p>
-
-##### **Options**
 
 <i><strong>Required</strong></i>
 ```javascript
