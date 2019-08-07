@@ -17,14 +17,14 @@ npx install --save-dev gulp-lib-exporter
 
 <!-- <p></p> -->
 
-<p>📁 <DIR "components"></p>
-<p>⌙ 📄 <FILE "component_1.js"></p>
-<p>⌙ 📄 <FILE "component_2.js"></p>
-<p>⌙ 📄 <FILE "component_3.js"></p>
+<p>📁 **DIR "components"**</p>
+<p>⌙ 📄 **FILE "component_1.js"**</p>
+<p>⌙ 📄 **FILE "component_2.js"**</p>
+<p>⌙ 📄 **FILE "component_3.js"**</p>
 
 
-<p>📁 <DIR "components"></p>
-<p>⌙ 📄 <FILE "component_1.js"></p>
-<p>⌙ 📄 <FILE "component_2.js"></p>
-<p>⌙ 📄 <FILE "component_3.js"></p>
-<p>⌙ 📑 <FILE "index.js"></p>
+<p>📁 **DIR "components"**</p>
+<p>⌙ 📄 **FILE "component_1.js"**</p>
+<p>⌙ 📄 **FILE "component_2.js"**</p>
+<p>⌙ 📄 **FILE "component_3.js"**</p>
+<p>⌙ 📑 **FILE "index.js"**</p>
