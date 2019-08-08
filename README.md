@@ -1,6 +1,6 @@
 # Gulp Lib Generator
 
-### A gulp task that creates a mass exports file from directory that contain exported vars, functions, etc. Great for use with frameworks!
+### A gulp task that creates a mass exports file from directories that contain exported vars, functions, etc. Great for use with frameworks!
 ---
 <br>
 
@@ -48,7 +48,7 @@ const libOptions = [
       customLibFormat += 'formatting logic';
       return customLibFormat; // must return a string
     }
-  },
+  }
 ];
 
 gulp.task('lib', gulp.series( libGenerator(libOptions) ));
@@ -133,7 +133,8 @@ const libGenerator = require('gulp-lib-generator');
 
 const { PWD: ROOT_DIR } = process.env;
 
-const libOptions = [{
+const libOptions = [
+  {
     type: 'CUSTOM',
     src: './_dev/gulp_tasks/lib/',
     // custom formatting function
@@ -153,17 +154,24 @@ const libOptions = [{
       // must return string to be written to lib file
       return tempLibContent;
     }
-  }];
+  }
+];
 
   gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 
+```
 
-  // ** generated in './_dev/gulp_tasks/lib/index.js' **
-  //
-  // module.exports = {
-  // 	  component_1: require('fully/qualified/path/to/component_1'),
-  // 	  component_2: require('fully/qualified/path/to/component_1'),
-  // };
+<p>
+The generated <code> index.js </code> would contain:
+</p>
+
+```javascript
+// './_dev/gulp_tasks/lib/index.js'
+
+module.exports = {
+	  component_1: require('fully/qualified/path/to/component_1'),
+	  component_2: require('fully/qualified/path/to/component_1'),
+};
 
 ```
 
