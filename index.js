@@ -15,7 +15,7 @@ function exportLibraries(libArray) {
     libFile: 'index.js',
     ignore: [],
     ascending: true,
-    customFormat(opt) { return null },
+    customFormat(fileName, index, isLastFile, self) { return null },
   };
   // using closure to maintain data
   const libPaths = libArray.map((lib) => {

@@ -42,6 +42,12 @@ const libOptions = [
   },
   {
     src: './src/api/routes/',
+    customFormat(fileInDir, fileIndex, isLastFile, fullOptions) {
+      let customLibFormat = ''
+      // ... custom library formatting ...
+      customLibFormat += 'formatting logic';
+      return customLibFormat; // must return a string
+    }
   },
 ];
 
@@ -73,6 +79,7 @@ src: // REQUIRED
 ```javascript
 
 type: // OPTIONAL
+  'CUSTOM'  // user provided `customFormat` function will be used
   'REQUIRE' // for module.exports files
   'IMPORT'  // for exports files
   'SASS'    // for SASS || SCSS files
@@ -91,6 +98,14 @@ ignore: // OPTIONAL
     './path/to/library/directory/' // Fully qualified paths are auto generated
                                   // if none provided the `src` path will be used
 
+  customFormat: // OPTIONAL
+    function(fileName, index, isLastFile, self) { return null }
+    // passed arguments are:
+    //  - fileName: current file name from iterated files in directory
+    //  - index: index of file position of directory files array
+    //  - isLastFile: true if is the last file in directory, else false
+    //  - self: the full object of library options, including defaults if applicable
+
 ```
 
 <i><strong>Defaults</strong></i>
@@ -103,9 +118,54 @@ ignore: // OPTIONAL
   ascending: true,
   src: null,
   dest: null,
+  customFormat(fileName, index, isLastFile, self) { return null },
 },
 
 ```
+
+<p><i><strong>Example use of <code> customFormat() </code></strong></i></p>
+<p><i><strong>Note:</strong> Must set <code> type </code> to <code> 'COSTUM' </code>, <code> { type: 'CUSTOM' } </code></i></p>
+
+```javascript
+const gulp = require('gulp');
+const path = require('path');
+const libGenerator = require('gulp-lib-generator');
+
+const { PWD: ROOT_DIR } = process.env;
+
+const libOptions = [{
+    type: 'CUSTOM',
+    src: './_dev/gulp_tasks/lib/',
+    // custom formatting function
+    customFormat(fileName, index, isLastFile, self) {
+      let tempLibContent = '';
+      const [ file ] = fileName.split('.');
+      // start library file line
+      if(index === 0) {
+        tempLibContent += 'module.exports = {';
+      }
+      // format for files to be exported as an object
+      tempLibContent += `\n\t${file}: require('${path.resolve(ROOT_DIR, self.dest, './'+file)}'),`;
+      // final library file line
+      if(isLastFile) {
+        tempLibContent += '\n};';
+      }
+      return tempLibContent;
+    }
+  }];
+
+  gulp.task('lib', gulp.series( libGenerator(libOptions) ));
+
+
+  // ** generated in './_dev/gulp_tasks/lib/index.js' **
+  //
+  // module.exports = {
+  // 	  component_1: require('fully/qualified/path/to/component_1'),
+  // 	  component_2: require('fully/qualified/path/to/component_1'),
+  // };
+
+```
+
 
 #### **Old way of importing components**
 
