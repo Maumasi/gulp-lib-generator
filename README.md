@@ -254,7 +254,7 @@ import {
 
 #### Notice
 <p>
-When using <code>import</code>, functions, vars, classes, etc. must be exported as an object literal:
+When using the <code> import/export </code> method, all the exported functions, vars, classes, etc. must be exported as an object literal:
 </p>
 
 
