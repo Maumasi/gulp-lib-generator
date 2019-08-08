@@ -169,6 +169,7 @@ const libOptions = [{
 
 ---
 <br>
+
 ### Why use a library file
 
 #### **Old way of importing components**
