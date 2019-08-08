@@ -261,7 +261,7 @@ When using the <code> import/export </code> method, all the exported functions, 
 ```javascript
 // ./path/to/components_dir/component_1.js
 
-const foo = () {
+const foo = () => {
   console.log('bar');
 }
 
