@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const{ REQUIRE, IMPORT, SASS } = require('./src/_types');
+const{ CUSTOM, REQUIRE, IMPORT, SASS } = require('./src/_types');
 
 const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
@@ -10,7 +10,13 @@ const rewriteFile = require('./src/_rewriteFile');
 const { requireIn, importIn, sassImportIn} = require('./src/_formatType');
 
 function exportLibraries(libArray) {
-  const defaults = { type: REQUIRE, libFile: 'index.js', ignore: [], ascending: true };
+  const defaults = {
+    type: REQUIRE,
+    libFile: 'index.js',
+    ignore: [],
+    ascending: true,
+    customFormat(opt) { return null },
+  };
   // using closure to maintain data
   const libPaths = libArray.map((lib) => {
     let tempObj = { ...defaults, ...lib };
@@ -38,6 +44,8 @@ function exportLibraries(libArray) {
             newLibIndex = importIn(lib);
           } else if(lib.type === SASS) {
             newLibIndex = sassImportIn(lib);
+          } else if(lib.type === CUSTOM) {
+            newLibIndex = customImportIn(lib);
           }
           rewriteFile(lib.finalDest, newLibIndex);
           //

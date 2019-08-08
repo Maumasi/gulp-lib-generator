@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const{ REQUIRE } = require('./_types');
+// const{ REQUIRE } = require('./_types');
 
 const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
@@ -15,7 +15,8 @@ function _baseFormat(lib, cb) {
     Array.prototype.ordered = Array.prototype.reverse;
   }
 
-  fs.readdirSync(src).ordered().forEach((file) => {
+  const dirFiles = fs.readdirSync(src).ordered();
+  dirFiles.forEach((file, i) => {
     let notIgnored = ![...ignore].some(ignoreFile => {
       let patt = new RegExp(ignoreFile);
       return (
@@ -25,7 +26,8 @@ function _baseFormat(lib, cb) {
     });
 
     if(notIgnored) {
-      content += cb(file);
+      content += cb(file, i, ((dirFiles.length - 1) === i), lib);
+      // cb(currentFilName, fileIndex, isLastElement, libObj)
     }
   });
   return content;
@@ -58,7 +60,6 @@ function importIn(lib) {
 
 function sassImportIn(lib) {
   const { src, libFile } = { libFile: 'main.sass', ...lib};
-
   return _baseFormat(lib, (file) => {
      let tempContent = '';
      const [prefix, adjustFileName] = file.split('_');
@@ -75,7 +76,13 @@ function sassImportIn(lib) {
 }
 
 
+function customImportIn(lib) {
+  return _baseFormat(lib, lib.customFormat);
+}
+
+
 module.exports = {
+  customImportIn,
   requireIn,
   importIn,
   sassImportIn,
