@@ -150,6 +150,7 @@ const libOptions = [{
       if(isLastFile) {
         tempLibContent += '\n};';
       }
+      // must return string to be written to lib file
       return tempLibContent;
     }
   }];
