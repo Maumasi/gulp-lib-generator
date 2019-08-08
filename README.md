@@ -43,7 +43,7 @@ const libOptions = [
   {
     src: './src/api/routes/',
     customFormat(fileInDir, fileIndex, isLastFile, fullOptions) {
-      let customLibFormat = ''
+      let customLibFormat = '';
       // ... custom library formatting ...
       customLibFormat += 'formatting logic';
       return customLibFormat; // must return a string
@@ -94,17 +94,17 @@ ascending: // OPTIONAL
 ignore: // OPTIONAL
   []        // array of string values of file names to not include in library. Regex strings are accepted
 
-  dest: // OPTIONAL
-    './path/to/library/directory/' // Fully qualified paths are auto generated
-                                  // if none provided the `src` path will be used
+dest: // OPTIONAL
+  './path/to/library/directory/' // Fully qualified paths are auto generated
+                                // if none provided the `src` path will be used
 
-  customFormat: // OPTIONAL
-    function(fileName, index, isLastFile, self) { return null }
-    // passed arguments are:
-    //  - fileName: current file name from iterated files in directory
-    //  - index: index of file position of directory files array
-    //  - isLastFile: true if is the last file in directory, else false
-    //  - self: the full object of library options, including defaults if applicable
+customFormat: // OPTIONAL
+  function(fileName, index, isLastFile, self) { return null }
+  // passed arguments are:
+  //  - fileName: current file name from iterated files in directory
+  //  - index: index of file position of directory files array
+  //  - isLastFile: true if is the last file in directory, else false
+  //  - self: the full object of library options, including defaults if applicable
 
 ```
 
@@ -119,12 +119,12 @@ ignore: // OPTIONAL
   src: null,
   dest: null,
   customFormat(fileName, index, isLastFile, self) { return null },
-},
+}
 
 ```
 
 <p><i><strong>Example use of <code> customFormat() </code></strong></i></p>
-<p><i><strong>Note:</strong> Must set <code> type </code> to <code> 'COSTUM' </code>, <code> { type: 'CUSTOM' } </code></i></p>
+<p><i><strong>Note:</strong> Must set <code> { type: 'CUSTOM' } </code> for custom formatting function to be used.</i></p>
 
 ```javascript
 const gulp = require('gulp');
