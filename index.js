@@ -7,7 +7,7 @@ const{ CUSTOM, REQUIRE, IMPORT, SASS } = require('./src/_types');
 const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
 const rewriteFile = require('./src/_rewriteFile');
-const { requireIn, importIn, sassImportIn} = require('./src/_formatType');
+const { customImportIn, requireIn, importIn, sassImportIn } = require('./src/_formatType');
 
 function exportLibraries(libArray) {
   const defaults = {
