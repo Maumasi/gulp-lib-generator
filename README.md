@@ -4,7 +4,7 @@
 ---
 <br>
 
-#### Install
+## Install
 ```bash
 npm install --save-dev gulp-lib-generator
 # or
@@ -13,7 +13,7 @@ npx install --save-dev gulp-lib-generator
 ---
 <br>
 
-#### Setup
+## Setup
 ```javascript
 const gulp = require('gulp');
 const libGenerator = require('gulp-lib-generator');
@@ -61,7 +61,7 @@ gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 ---
 <br>
 
-#### Use
+## Use
 <p>
 A directory with a JavaScript files that could be considered a library like a directory of React.js or Vue.js components can be exported through a single file, named from the <code> libFile </code> option, that is generated based off of the option rules provided.
 </p>
@@ -170,7 +170,7 @@ const libOptions = [{
 ---
 <br>
 
-### Why use a library file
+## Why use a library file
 
 #### **Old way of importing components**
 
