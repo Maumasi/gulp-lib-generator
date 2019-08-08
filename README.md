@@ -57,7 +57,7 @@ gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 
 #### Use
 <p>
-A directory with a JavaScript files that could be considered a library like a directory of React.js or Vue.js components can be exported through a single file.
+A directory with a JavaScript files that could be considered a library like a directory of React.js or Vue.js components can be exported through a single file, named from the <code> libFile </code> option, that is generated based off of the option rules provided.
 </p>
 
 <i><strong>Required</strong></i>
@@ -141,7 +141,11 @@ When importing or requiring in files from directories, <code> index.js </code> i
 </p>
 
 <p>
-external files can now be pulled in using the newly generated library
+If using a custom name with the <code> libFile </code> option, the file name will need to be included in the import route being required from.
+</p>
+
+<p>
+In this example, <code> index.js </code> is being used. External files can now be pulled in using the newly generated library.
 </p>
 
 ```bash
@@ -150,7 +154,7 @@ external files can now be pulled in using the newly generated library
     ├── component_2.js
     ├── component_3.js
     ├── component_4.js
-    └── index.js  # <--- new component library for directory
+    └── index.js  # <--- new generated component library for this directory
 ```
 
 <i>using <code>require();</code></i>
@@ -171,13 +175,13 @@ import {
   component_1,
   component_2,
   component_3,
-  component_4
+  component_4,
 } from './path/to/components_dir';
 ```
 
 #### Notice
 <p>
-When using <code>import</code>, functions, vars, classes, etc. must be exported in an object literal:
+When using <code>import</code>, functions, vars, classes, etc. must be exported as an object literal:
 </p>
 
 
