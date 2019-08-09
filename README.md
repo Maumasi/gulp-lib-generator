@@ -157,7 +157,7 @@ const libOptions = [
   }
 ];
 
-  gulp.task('lib', gulp.series( libGenerator(libOptions) ));
+gulp.task('lib', gulp.series( libGenerator(libOptions) ));
 
 ```
 
@@ -169,8 +169,8 @@ The generated <code> index.js </code> would contain:
 // './_dev/gulp_tasks/lib/index.js'
 
 module.exports = {
-	  component_1: require('fully/qualified/path/to/component_1'),
-	  component_2: require('fully/qualified/path/to/component_1'),
+  component_1: require('fully/qualified/path/to/component_1'),
+  component_2: require('fully/qualified/path/to/component_1'),
 };
 
 ```
@@ -261,9 +261,10 @@ When using the <code> import/export </code> method, all the exported functions, 
 ```javascript
 // ./path/to/components_dir/component_1.js
 
-const foo = () => {
-  console.log('bar');
+const component_1 = () => {
+  // ... component logic ...
+  return some_data;
 }
 
-export { foo };
+export { component_1 };
 ```
