@@ -15,6 +15,8 @@ function exportLibraries(libArray) {
     libFile: 'index.js',
     ignore: [],
     ascending: true,
+    src: null,
+    dest: null,
     customFormat(fileName, index, isLastFile, self) { return null },
   };
   // using closure to maintain data
