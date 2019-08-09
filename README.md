@@ -146,7 +146,7 @@ const libOptions = [
         tempLibContent += 'module.exports = {';
       }
       // format for files to be exported as an object
-      tempLibContent += `\n\t${file}: require('${path.resolve(ROOT_DIR, self.dest, './'+file)}'),`;
+      tempLibContent += `\n\t${file}: require('${path.resolve(ROOT_DIR, self.src, './'+file)}'),`;
       // final library file line
       if(isLastFile) {
         tempLibContent += '\n};';
