@@ -52,7 +52,7 @@ function exportLibraries(libArray) {
         } catch(e) {
           if(e) {
             rewriteFile(lib.finalDest, data);
-            console.log('There was an error, so file was reverted to previous version.');
+            console.log('Error creating the library for: '+ lib.src);
             console.log(e);
           }
         }
