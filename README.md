@@ -170,7 +170,7 @@ The generated <code> index.js </code> would contain:
 
 module.exports = {
   component_1: require('fully/qualified/path/to/component_1'),
-  component_2: require('fully/qualified/path/to/component_1'),
+  component_2: require('fully/qualified/path/to/component_2'),
 };
 
 ```

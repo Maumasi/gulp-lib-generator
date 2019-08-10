@@ -26,14 +26,12 @@ function exportLibraries(libArray) {
       tempObj.dest = tempObj.src;
     }
     tempObj.finalDest = path.resolve(ROOT_DIR, tempObj.dest, './'+tempObj.libFile);
-
+    //
     if(tempObj.dest === tempObj.src) {
       tempObj.ignore.push(tempObj.libFile);
     }
-
     return tempObj;
   });
-
   // return gulp task with libary array
   return (done) => {
     libPaths.forEach((lib) => {
@@ -57,11 +55,11 @@ function exportLibraries(libArray) {
             console.log('Error creating the library for: '+ lib.src);
             console.log(e);
           }
-        }
-      });
-    });
+        } // catch
+      }); // fs.readdir
+    }); // libPaths.forEach
     done();
-  }
+  } // return func
 }
 
 module.exports = exportLibraries;
