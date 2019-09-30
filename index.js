@@ -11,7 +11,7 @@ const createRelativePath = require('./src/createRelativePath');
 
 const { customImportIn, requireIn, importIn, sassImportIn } = require('./src/_formatType');
 
-function exportLibraries(libArray) {
+function createLib(libArray) {
   const defaults = {
     type: REQUIRE,
     libFile: 'index.js',
