@@ -27,7 +27,7 @@ function exportLibraries(libArray) {
     }
 
     const relPath = path.join(
-        path.basename(self.src), '/', path.basename('./'+tempObj.libFile)
+        path.basename(tempObj.src), '/', path.basename('./'+tempObj.libFile)
       );
 
     tempObj.finalDest = './' + relPath;
