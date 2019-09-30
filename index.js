@@ -7,6 +7,8 @@ const{ CUSTOM, REQUIRE, IMPORT, SASS } = require('./src/_types');
 // const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
 const rewriteFile = require('./src/_rewriteFile');
+const createRelativePath = require('./src/createRelativePath');
+
 const { customImportIn, requireIn, importIn, sassImportIn } = require('./src/_formatType');
 
 function exportLibraries(libArray) {
@@ -26,12 +28,12 @@ function exportLibraries(libArray) {
       tempObj.dest = tempObj.src;
     }
 
-    const relPath = path.join(
-        path.basename(tempObj.src), '/', path.basename('./'+tempObj.libFile)
-      );
-
-    tempObj.finalDest = './' + relPath;
-    // tempObj.finalDest = path.resolve(tempObj.dest, './'+tempObj.libFile);
+    // const relPath = path.join(
+    //     path.basename(tempObj.src), '/', path.basename('./'+tempObj.libFile)
+    //   );
+    //
+    // tempObj.finalDest = './' + relPath;
+    tempObj.finalDest = path.resolve(tempObj.dest, './'+tempObj.libFile);
     //
     if(tempObj.dest === tempObj.src) {
       tempObj.ignore.push(tempObj.libFile);
@@ -68,4 +70,4 @@ function exportLibraries(libArray) {
   } // return func
 }
 
-module.exports = exportLibraries;
+module.exports = { createLib, createRelativePath };

@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const createRelativePath = require('./createRelativePath');
+
 
 function _baseFormat(lib, cb) {
   const { src, dest, ignore, libFile, ascending } = lib;
@@ -36,7 +38,7 @@ function requireIn(lib) {
   let libContent = 'module.exports = {';
   libContent += _baseFormat(lib, (file) => {
     let [fileName] = file.split('.js');
-    return `\n\t${fileName}: require('./${path.join(src, './'+fileName)}'),`;
+    return `\n\t${fileName}: require('./${createRelativePath(src, './'+fileName)}'),`;
   });
 
   libContent += '\n};';
@@ -48,7 +50,7 @@ function importIn(lib) {
   const { src } = lib;
   return _baseFormat(lib, (file) => {
     let [fileName] = file.split('.js');
-    return `\nexport * from './${path.join(src, './'+fileName)}';`;
+    return `\nexport * from './${createRelativePath(src, './'+fileName)}';`;
   });
 }
 
@@ -61,7 +63,7 @@ function sassImportIn(lib) {
 
      if(!prefix) {
        let [fileName, fileExtention] = adjustFileName.split('.');
-       tempContent +=  `@import './${path.join(src, './'+fileName)}'\n`;
+       tempContent +=  `@import './${createRelativePath(src, './'+fileName)}'\n`;
        if(libFile.split('.')[1] === 'scss') {
          tempContent += ';';
        }
