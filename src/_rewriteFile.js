@@ -9,6 +9,7 @@ function rewriteFile({ finalDest, src, dest, libFile }, content) {
     if(err) {
         console.log(err);
     }
+      console.log('\n', 'src: ', src, '\ndest: ', dest);
       console.log(`Library created: ${cliColor.blueBright(buildRelativePath(src, dest, libFile))}`);
   }); // write to file
 }
