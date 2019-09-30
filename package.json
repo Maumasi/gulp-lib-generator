@@ -1,6 +1,6 @@
 {
   "name": "gulp-lib-generator",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "A Gulp task that creates a mass exports file from directory that contain exported vars, functions, etc. Great for use with frameworks!",
   "main": "index.js",
   "scripts": {
