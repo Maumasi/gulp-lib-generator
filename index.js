@@ -4,7 +4,7 @@ const path = require('path');
 
 const{ CUSTOM, REQUIRE, IMPORT, SASS } = require('./src/_types');
 
-const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
+// const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
 
 const rewriteFile = require('./src/_rewriteFile');
 const { customImportIn, requireIn, importIn, sassImportIn } = require('./src/_formatType');
@@ -25,7 +25,7 @@ function exportLibraries(libArray) {
     if(!tempObj.dest) {
       tempObj.dest = tempObj.src;
     }
-    tempObj.finalDest = path.resolve(ROOT_DIR, tempObj.dest, './'+tempObj.libFile);
+    tempObj.finalDest = path.resolve(tempObj.dest, './'+tempObj.libFile);
     //
     if(tempObj.dest === tempObj.src) {
       tempObj.ignore.push(tempObj.libFile);
