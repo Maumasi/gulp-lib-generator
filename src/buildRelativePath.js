@@ -15,9 +15,11 @@ function buildRelativePath(souce, destination, filename) {
       }
       //
       if(diverged && (i < tempDest.length)) {
-        pathBackup.push('../');
+        if((i - tempDest.length) > 1) {
+          pathBackup.push('../');
+        }
         pathForward.push(el);
-      } else if(diverged && (i >= tempDest.length)) {
+      } else if(i >= tempDest.length) {
         pathForward.push(el);
       }
     });
