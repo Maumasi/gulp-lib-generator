@@ -33,7 +33,7 @@ function createLib(libArray) {
     //   );
     //
     // tempObj.finalDest = './' + relPath;
-    tempObj.finalDest = path.resolve(tempObj.dest, './'+tempObj.libFile);
+    tempObj.finalDest = createRelativePath(tempObj.dest, './'+tempObj.libFile);
     //
     if(tempObj.dest === tempObj.src) {
       tempObj.ignore.push(tempObj.libFile);

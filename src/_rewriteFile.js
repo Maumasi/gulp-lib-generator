@@ -1,8 +1,6 @@
 
 const cliColor = require("cli-color");
 const fs = require('fs');
-const path = require('path');
-
 
 // util
 function rewriteFile(filePath, content) {
