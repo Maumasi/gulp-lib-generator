@@ -36,7 +36,7 @@ function requireIn(lib) {
   let libContent = 'module.exports = {';
   libContent += _baseFormat(lib, (file) => {
     let [fileName] = file.split('.js');
-    return `\n\t${fileName}: require('${path.resolve(src, './'+fileName)}'),`;
+    return `\n\t${fileName}: require('./${path.join(src, './'+fileName)}'),`;
   });
 
   libContent += '\n};';
@@ -48,7 +48,7 @@ function importIn(lib) {
   const { src } = lib;
   return _baseFormat(lib, (file) => {
     let [fileName] = file.split('.js');
-    return `\nexport * from '${path.resolve(src, './'+fileName)}';`;
+    return `\nexport * from './${path.join(src, './'+fileName)}';`;
   });
 }
 
@@ -61,7 +61,7 @@ function sassImportIn(lib) {
 
      if(!prefix) {
        let [fileName, fileExtention] = adjustFileName.split('.');
-       tempContent +=  `@import '${path.resolve(src, './'+fileName)}'\n`;
+       tempContent +=  `@import './${path.join(src, './'+fileName)}'\n`;
        if(libFile.split('.')[1] === 'scss') {
          tempContent += ';';
        }
