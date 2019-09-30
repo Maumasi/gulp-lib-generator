@@ -59,7 +59,7 @@ function createLib(libArray) {
           //
         } catch(e) {
           if(e) {
-            rewriteFile(lib.finalDest, data);
+            rewriteFile(lib, data);
             console.log('Error creating the library for: '+ lib.src);
             console.log(e);
           }
