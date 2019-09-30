@@ -71,4 +71,4 @@ function createLib(libArray) {
   } // return func
 }
 
-module.exports = { createLib, createRelativePath };
+module.exports = { createLib, createRelativePath, buildRelativePath };

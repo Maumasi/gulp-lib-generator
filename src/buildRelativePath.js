@@ -2,8 +2,8 @@
 const path = require('path');
 
 function buildRelativePath(souce, destination, filename) {
-  const tempSrc = souce.split('/');
-  const tempDest = destination.split('/');
+  const tempSrc = path.normalize(souce).split('/');
+  const tempDest = path.normalize(destination).split('/');
   let pathBackup = [];
   let pathForward = [];
   let diverged = false;
@@ -38,7 +38,9 @@ function buildRelativePath(souce, destination, filename) {
       }
       //
       if(diverged && (i < tempSrc.length)) {
-        pathBackup.push('../');
+        if((i - tempDest.length) > 1) {
+          pathBackup.push('../');
+        }
         pathForward.push(tempSrc[i]);
       } else if(diverged && (i >= tempSrc.length)) {
         pathBackup.push('../');
