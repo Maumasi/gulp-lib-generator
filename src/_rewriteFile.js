@@ -10,7 +10,7 @@ function rewriteFile({ finalDest, src, dest, libFile }, content) {
         console.log(err);
     }
       console.log('\n', 'src: ', src);
-      console.log(`Library created: ${cliColor.blueBright(path.normalize(dest)+'/'+libFile)}`);
+      console.log(`Library created: ${cliColor.blueBright(path.normalize(dest)+libFile)}`);
   }); // write to file
 }
 
