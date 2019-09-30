@@ -23,6 +23,7 @@ function buildRelativePath(souce, destination, filename) {
     });
     //
     if(!diverged) {
+      pathBackup.pop();
       pathBackup = ['./'];
     }
     //
@@ -38,13 +39,13 @@ function buildRelativePath(souce, destination, filename) {
       if(diverged && (i < tempSrc.length)) {
         pathBackup.push('../');
         pathForward.push(tempSrc[i]);
-        console.log('pathForward: ', pathForward);
       } else if(diverged && (i >= tempSrc.length)) {
         pathBackup.push('../');
       }
     });
     //
     if(!diverged) {
+      pathBackup.pop();
       pathBackup = ['./'];
     }
     //
