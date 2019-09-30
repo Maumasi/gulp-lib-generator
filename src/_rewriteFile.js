@@ -8,7 +8,7 @@ function rewriteFile({ finalDest, src }, content) {
     if(err) {
         console.log(err);
     }
-      console.log(`Lib created: ${cliColor.blueBright(src)}`);
+      console.log(`Lib created for DIR: ${cliColor.blueBright(src)}`);
   }); // write to file
 }
 
