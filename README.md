@@ -16,7 +16,7 @@ npx install --save-dev gulp-lib-generator
 ## Setup
 ```javascript
 const gulp = require('gulp');
-const libGenerator = require('gulp-lib-generator');
+const { createLib, createRelativePath } = require('gulp-lib-generator');
 
 
 const libOptions = [
@@ -51,7 +51,7 @@ const libOptions = [
   }
 ];
 
-gulp.task('lib', gulp.series( libGenerator(libOptions) ));
+gulp.task('lib', gulp.series( createLib(libOptions) ));
 
 // # command in terminal:
 // $ gulp lib
@@ -129,7 +129,7 @@ customFormat: // OPTIONAL
 ```javascript
 const gulp = require('gulp');
 const path = require('path');
-const libGenerator = require('gulp-lib-generator');
+const { createLib, createRelativePath } = require('gulp-lib-generator');
 
 const { PWD: ROOT_DIR } = process.env;
 
@@ -146,7 +146,7 @@ const libOptions = [
         tempLibContent += 'module.exports = {';
       }
       // format for files to be exported as an object
-      tempLibContent += `\n\t${file}: require('${path.resolve(ROOT_DIR, self.src, './'+file)}'),`;
+      tempLibContent += `\n\t${file}: require('${createRelativePath(self.src, './'+file)}'),`;
       // final library file line
       if(isLastFile) {
         tempLibContent += '\n};';
@@ -157,7 +157,7 @@ const libOptions = [
   }
 ];
 
-gulp.task('lib', gulp.series( libGenerator(libOptions) ));
+gulp.task('lib', gulp.series( createLib(libOptions) ));
 
 ```
 
