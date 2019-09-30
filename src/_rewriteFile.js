@@ -4,7 +4,7 @@ const fs = require('fs');
 
 // util
 function rewriteFile({ finalDest, src }, content) {
-  fs.writeFile(filePath, content, (err) => {
+  fs.writeFile(finalDest, content, (err) => {
     if(err) {
         console.log(err);
     }
