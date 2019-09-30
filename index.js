@@ -25,7 +25,7 @@ function exportLibraries(libArray) {
     if(!tempObj.dest) {
       tempObj.dest = tempObj.src;
     }
-    tempObj.finalDest = './' + path.join(tempObj.dest, './'+tempObj.libFile);
+    tempObj.finalDest = '/' + path.join(tempObj.dest, './'+tempObj.libFile);
     //
     if(tempObj.dest === tempObj.src) {
       tempObj.ignore.push(tempObj.libFile);
