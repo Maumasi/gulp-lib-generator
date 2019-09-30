@@ -1,14 +1,15 @@
 
 const cliColor = require("cli-color");
 const fs = require('fs');
+const buildRelativePath = require('./buildRelativePath');
 
 // util
-function rewriteFile({ finalDest, src }, content) {
+function rewriteFile({ finalDest, src, dest, libFile }, content) {
   fs.writeFile(finalDest, content, (err) => {
     if(err) {
         console.log(err);
     }
-      console.log(`Lib created for SOURCE: ${cliColor.blueBright(src)} at:\n-`, finalDest, '\n');
+      console.log(`Library created: ${cliColor.blueBright(buildRelativePath(src, dest, libFile))});
   }); // write to file
 }
 
