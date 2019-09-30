@@ -1,10 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// const{ REQUIRE } = require('./_types');
-
-const { PWD: ROOT_DIR } = process.env; // destruct PWD as the new variable `ROOT_DIR`
-
 function _baseFormat(lib, cb) {
   const { src, dest, ignore, libFile, ascending } = lib;
   let content = '';
@@ -27,7 +23,6 @@ function _baseFormat(lib, cb) {
 
     if(notIgnored) {
       content += cb(file, i, ((dirFiles.length - 1) === i), lib);
-      // cb(currentFilName, fileIndex, isLastElement, libObj)
     }
   });
   return content;
@@ -41,7 +36,7 @@ function requireIn(lib) {
   let libContent = 'module.exports = {';
   libContent += _baseFormat(lib, (file) => {
     let [fileName] = file.split('.js');
-    return `\n\t${fileName}: require('${path.resolve(ROOT_DIR, src, './'+fileName)}'),`;
+    return `\n\t${fileName}: require('${path.resolve(src, './'+fileName)}'),`;
   });
 
   libContent += '\n};';
@@ -53,7 +48,7 @@ function importIn(lib) {
   const { src } = lib;
   return _baseFormat(lib, (file) => {
     let [fileName] = file.split('.js');
-    return `\nexport * from '${path.resolve(ROOT_DIR, src, './'+fileName)}';`;
+    return `\nexport * from '${path.resolve(src, './'+fileName)}';`;
   });
 }
 
@@ -66,7 +61,7 @@ function sassImportIn(lib) {
 
      if(!prefix) {
        let [fileName, fileExtention] = adjustFileName.split('.');
-       tempContent +=  `@import '${path.resolve(ROOT_DIR, src, './'+fileName)}'\n`;
+       tempContent +=  `@import '${path.resolve(src, './'+fileName)}'\n`;
        if(libFile.split('.')[1] === 'scss') {
          tempContent += ';';
        }
