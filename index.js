@@ -55,7 +55,7 @@ function createLib(libArray) {
           } else if(lib.type === CUSTOM) {
             newLibIndex = customImportIn(lib);
           }
-          rewriteFile(lib.finalDest, newLibIndex);
+          rewriteFile(lib, newLibIndex);
           //
         } catch(e) {
           if(e) {
