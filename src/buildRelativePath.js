@@ -23,8 +23,7 @@ function buildRelativePath(souce, destination, filename) {
     });
     //
     if(!diverged) {
-      pathBackup = [];
-      pathBackup.push('./');
+      pathBackup = ['./'];
     }
     //
     return path.join(...pathBackup, ...pathForward, filename);
@@ -46,8 +45,7 @@ function buildRelativePath(souce, destination, filename) {
     });
     //
     if(!diverged) {
-      pathBackup = [];
-      pathBackup.push('./');
+      pathBackup = ['./'];
     }
     //
     return path.join(...pathBackup, ...pathForward, filename);
