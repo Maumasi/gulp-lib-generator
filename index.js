@@ -25,7 +25,13 @@ function exportLibraries(libArray) {
     if(!tempObj.dest) {
       tempObj.dest = tempObj.src;
     }
-    tempObj.finalDest = path.resolve(tempObj.dest, './'+tempObj.libFile);
+
+    const relPath = path.join(
+        path.basename(self.src), '/', path.basename('./'+tempObj.libFile)
+      );
+
+    tempObj.finalDest = './' + relPath;
+    // tempObj.finalDest = path.resolve(tempObj.dest, './'+tempObj.libFile);
     //
     if(tempObj.dest === tempObj.src) {
       tempObj.ignore.push(tempObj.libFile);
