@@ -8,6 +8,7 @@ const{ CUSTOM, REQUIRE, IMPORT, SASS } = require('./src/_types');
 
 const rewriteFile = require('./src/_rewriteFile');
 const createRelativePath = require('./src/createRelativePath');
+const buildRelativePath = require('./src/buildRelativePath');
 
 const { customImportIn, requireIn, importIn, sassImportIn } = require('./src/_formatType');
 
